@@ -1,0 +1,4 @@
+<mat-form-field class="search-input">
+    <input matInput autocomplete="off" placeholder="Search for:" [value]="stateService.state.search$ | async"
+        (keyup)="debounce$.next($event.target.value)">
+</mat-form-field>

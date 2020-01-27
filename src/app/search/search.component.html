@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Search Component</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <one-search-input></one-search-input>
+        </div>
+        <div class="route">
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </div>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <mat-radio-group [value]="stateService.state.provider$ | async">
+            <mat-radio-button class="provider" *ngFor="let p of Provider" [routerLink]="[p]" [value]="p">
+                {{p | titlecase}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </mat-card-actions>
+</mat-card>
